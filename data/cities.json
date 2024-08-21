@@ -1,0 +1,52 @@
+{
+  "cities": [
+    {
+      "id": 1699702405233,
+      "cityName": "Borough of Thurrock",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "GB",
+      "date": "2023-11-11T11:33:23.762Z",
+      "notes": "",
+      "position": {
+        "lat": "51.483093349884925",
+        "lng": "0.26641845703125006"
+      }
+    },
+    {
+      "id": 1699906722410,
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "GB",
+      "date": "2023-11-13T20:18:40.828Z",
+      "notes": "",
+      "position": {
+        "lat": "51.462563670141634",
+        "lng": "-0.016479492187500003"
+      }
+    },
+    {
+      "id": 1700130341908,
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "GB",
+      "date": "2023-11-16T10:25:40.742Z",
+      "notes": "",
+      "position": {
+        "lat": "51.36492148825955",
+        "lng": "-0.09613037109375001"
+      }
+    },
+    {
+      "id": 1701426017657,
+      "cityName": "Watton at Stone",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "GB",
+      "date": "2023-12-01T10:15:57.802Z",
+      "notes": "",
+      "position": {
+        "lat": "51.84772322235742",
+        "lng": "-0.15655517578125003"
+      }
+    }
+  ]
+}
