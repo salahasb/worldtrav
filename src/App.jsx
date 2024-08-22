@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/Homepage";
+
+import Homepage from "./pages/Homepage";
 import Pricing from "./pages/Pricing";
 import Product from "./pages/Product";
 import NotFound from "./pages/PageNotFound";
@@ -18,7 +19,7 @@ function App() {
 		<AuthProvider>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" index element={<HomePage />} />
+					<Route path="/" index element={<Homepage />} />
 					<Route path="product" element={<Product />} />
 					<Route path="pricing" element={<Pricing />} />
 					<Route path="login" element={<Login />} />
