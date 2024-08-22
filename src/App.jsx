@@ -7,7 +7,6 @@ import NotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/appLayout/CityList";
-// import { useEffect, useState } from "react";
 import CountryList from "./components/appLayout/CountryList";
 import City from "./components/appLayout/City";
 import Form from "./components/appLayout/Form";
