@@ -4,11 +4,19 @@ export const makeRequest = async function (url, initPost) {
 
 		const data = await res.json();
 
-		console.log("succeed");
 		return data;
 	} catch (error) {
 		console.log(error);
 
 		throw error;
 	}
+};
+
+export const formatDate = function (date) {
+	const options = { year: "numeric", month: "long", day: "numeric" };
+	console.log(date);
+	const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
+		new Date(date)
+	);
+	return formattedDate;
 };

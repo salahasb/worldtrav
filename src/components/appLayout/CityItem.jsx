@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
 import { useCities } from "../../contexts/CitiesContext";
+import Flag from "react-world-flags";
+import { formatDate } from "../../helpers";
 
 function CityItem({ city }) {
 	const {
@@ -11,36 +13,31 @@ function CityItem({ city }) {
 		position: { lat, lng },
 	} = city;
 
-	const {
-		city: { id: cityId },
-		deleteCity,
-	} = useCities();
+	const { setCities } = useCities();
 
 	function handleClick(e) {
 		e.preventDefault();
-		deleteCity(id);
-		// console.log("removed");
-	}
 
-	const formatDate = (date) =>
-		new Intl.DateTimeFormat("en", {
-			day: "numeric",
-			month: "long",
-			year: "numeric",
-			weekday: "long",
-		}).format(new Date(date));
+		setCities((cities) => cities.filter((city) => city.id !== id));
+	}
 
 	return (
 		<li>
 			<Link
-				className={`${styles.cityItem}  ${
-					cityId === id ? styles["cityItem--active"] : ""
-				}`}
+				className={`${styles.cityItem} 				  `}
 				to={`${id}?lat=${lat}&lng=${lng}`}
 			>
-				<span className={styles.emoji}>{emoji}</span>
+				<Flag
+					code={emoji}
+					alt={`${city.country} flag`}
+					width={30}
+					height={20}
+				/>
+
 				<h3 className={styles.name}>{cityName}</h3>
-				<time className={styles.date}>{formatDate(date)}</time>
+
+				<time className={styles.date}>{`(${formatDate(date)})`}</time>
+
 				<button className={styles.deleteBtn} onClick={handleClick}>
 					&times;
 				</button>

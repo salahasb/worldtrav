@@ -1,10 +1,8 @@
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../../contexts/CitiesContext";
-import { useEffect } from "react";
-import Spinner from "../Spinner";
-import Message from "../Message";
 import ButtonBack from "../ButtonBack";
+import Flag from "react-world-flags";
 
 const formatDate = (date) =>
 	new Intl.DateTimeFormat("en", {
@@ -17,24 +15,26 @@ const formatDate = (date) =>
 function City() {
 	const { id } = useParams();
 
-	const { getCity, city, isLoading, error } = useCities();
+	const { cities } = useCities();
 
-	useEffect(() => {
-		getCity(id);
-	}, [id, getCity]);
+	if (!cities || !cities.length) return;
 
+	const city = cities.find((city) => city.id === +id);
 	const { cityName, emoji, date, notes } = city;
-
-	if (isLoading) return <Spinner />;
-
-	if (error) return <Message>{error}</Message>;
 
 	return (
 		<div className={styles.city}>
 			<div className={styles.row}>
 				<h6>City name</h6>
 				<h3>
-					<span>{emoji}</span> {cityName}
+					<Flag
+						code={emoji}
+						alt={`${city.country} flag`}
+						width={30}
+						height={20}
+						className={styles.flag}
+					/>{" "}
+					{cityName}
 				</h3>
 			</div>
 

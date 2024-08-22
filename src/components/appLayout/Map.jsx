@@ -10,10 +10,10 @@ import {
 	useMapEvents,
 } from "react-leaflet";
 import { useCities } from "../../contexts/CitiesContext";
-import useGeoLocation from "../hooks/useGeoLocation";
+import useGeoLocation from "../../hooks/useGeoLocation";
 import Button from "../Button";
-import { useUrlPosition } from "../hooks/useUrlPosition";
-import { useAuth } from "../../contexts/AuthContext";
+import { useUrlPosition } from "../../hooks/useUrlPosition";
+import Flag from "react-world-flags";
 
 function Map() {
 	const {
@@ -26,7 +26,6 @@ function Map() {
 
 	const { cities } = useCities();
 
-	// const [position, setPosition] = useState([51.505, -0.09]);
 	const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
 
 	useEffect(() => {
@@ -36,10 +35,8 @@ function Map() {
 	}, [lat, lng]);
 
 	return (
-		<div
-			className={styles.mapContainer}
-			//  onClick={() => navigate(`form`)}
-		>
+		<div className={styles.mapContainer}>
+			{/* for browser geolocation api */}
 			{!geoLocationPosition && (
 				<Button
 					type="position"
@@ -51,6 +48,7 @@ function Map() {
 				</Button>
 			)}
 
+			{/* The Map */}
 			<MapContainer
 				center={mapPosition}
 				zoom={9}
@@ -68,10 +66,18 @@ function Map() {
 						key={city.id}
 					>
 						<Popup>
-							<span>{city.emoji}</span> <span>{city.cityName}</span>
+							<Flag
+								code={city.emoji}
+								alt={`${city.country} flag`}
+								width={30}
+								height={20}
+								className={styles.flag}
+							/>
+							<span>{city.cityName}</span>
 						</Popup>
 					</Marker>
 				))}
+
 				<ChangeCenter position={mapPosition} />
 				<DetectClick />
 			</MapContainer>
@@ -81,7 +87,13 @@ function Map() {
 
 function ChangeCenter({ position }) {
 	const map = useMap();
-	map.setView(position);
+
+	useEffect(() => {
+		map.closePopup();
+
+		map.setView(position);
+	}, [map, position]);
+
 	return null;
 }
 
