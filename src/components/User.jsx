@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import styles from "./User.module.css";
 
-function User() {
+function User({ className }) {
 	const { user, logout } = useAuth();
 
 	function handleClick() {
@@ -11,7 +11,7 @@ function User() {
 	}
 
 	return (
-		<div className={styles.user}>
+		<div className={`${styles.user} ${styles[className]}`}>
 			<img src={user.avatar} alt={user.name} />
 			<span>Welcome, {user.name}</span>
 			<button onClick={handleClick}>Logout</button>

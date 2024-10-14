@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./Logo.module.css";
 
-function Logo() {
-	return (
+function Logo({ headerLogo }) {
+	return headerLogo ? (
 		<>
 			<Link to="/" className={styles.logo2}>
 				<img src="/icon.png" alt="WorldWise logo" />
@@ -12,6 +12,10 @@ function Logo() {
 				<img src="/logo.png" alt="WorldWise logo" />
 			</Link>
 		</>
+	) : (
+		<Link to="/" className={styles.logo}>
+			<img src="/logo.png" alt="WorldWise logo" />
+		</Link>
 	);
 }
 

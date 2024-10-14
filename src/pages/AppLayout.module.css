@@ -1,7 +1,35 @@
 .app {
-  height: 100vh;
-  padding: 2.4rem;
-  overscroll-behavior-y: none;
-  display: flex;
-  position: relative;
+	height: 100vh;
+	overscroll-behavior-y: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
+	position: relative;
+
+	@media (min-width: 1024px) {
+		grid-template-columns: 50rem 2fr;
+		grid-template-rows: 1fr;
+	}
+}
+.app > header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-dark--1);
+	padding: 0 2rem;
+
+	/* @media (min-width: 500px) {
+		padding: 0 3rem;
+	} */
+
+	@media (min-width: 1024px) {
+		display: none;
+	}
+}
+.app > header > svg {
+	cursor: pointer;
+	box-sizing: content-box;
+	padding: 0.1rem 0.4rem;
+	background-color: #444;
+	border-radius: 4px;
 }
