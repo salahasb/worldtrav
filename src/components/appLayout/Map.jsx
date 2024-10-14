@@ -15,7 +15,7 @@ import Button from "../Button";
 import { useUrlPosition } from "../../hooks/useUrlPosition";
 import Flag from "react-world-flags";
 
-function Map() {
+function Map({ setShowSidebar }) {
 	const {
 		isLoading: isLoadingPosition,
 		position: geoLocationPosition,
@@ -79,7 +79,7 @@ function Map() {
 				))}
 
 				<ChangeCenter position={mapPosition} />
-				<DetectClick />
+				<DetectClick setShowSidebar={setShowSidebar} />
 			</MapContainer>
 		</div>
 	);
@@ -97,11 +97,14 @@ function ChangeCenter({ position }) {
 	return null;
 }
 
-function DetectClick() {
+function DetectClick({ setShowSidebar }) {
 	const navigate = useNavigate();
 
 	useMapEvents({
-		click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+		click: (e) => {
+			setShowSidebar(true);
+			navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+		},
 	});
 }
 

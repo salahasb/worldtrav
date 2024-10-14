@@ -1,11 +1,16 @@
+import { IoClose } from "react-icons/io5";
 import Logo from "../Logo";
 import AppNav from "./AppNav";
 import styles from "./Sidebar.module.css";
 import { Outlet } from "react-router-dom";
 
-function SideBar() {
+function SideBar({ showSidebar, setShowSidebar }) {
 	return (
-		<div className={`${styles.sidebar} ${styles.show}`}>
+		<div className={`${styles.sidebar} ${showSidebar ? styles.show : ""}`}>
+			<button onClick={() => setShowSidebar(false)}>
+				<IoClose />
+			</button>
+
 			<Logo />
 			<AppNav />
 			<Outlet />
