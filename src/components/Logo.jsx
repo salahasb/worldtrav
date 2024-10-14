@@ -3,9 +3,15 @@ import styles from "./Logo.module.css";
 
 function Logo() {
 	return (
-		<Link to="/">
-			<img src="/logo.png" alt="WorldWise logo" className={styles.logo} />
-		</Link>
+		<>
+			<Link to="/" className={styles.logo2}>
+				<img src="/icon.png" alt="WorldWise logo" />
+			</Link>
+
+			<Link to="/" className={styles.logo1}>
+				<img src="/logo.png" alt="WorldWise logo" />
+			</Link>
+		</>
 	);
 }
 

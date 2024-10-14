@@ -1,3 +1,21 @@
-.logo {
-  height: 5.2rem;
+:where(.logo1, .logo2) img {
+	height: 5.2rem;
+}
+
+.logo1 {
+	display: none;
+
+	@media (min-width: 768px) {
+		display: block;
+		order: -1;
+	}
+}
+
+.logo2 {
+	display: block;
+
+	@media (min-width: 768px) {
+		display: none;
+		order: 1;
+	}
 }
