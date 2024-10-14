@@ -1,26 +1,45 @@
 .login {
-  margin: 2.5rem;
-  padding: 2.5rem 5rem;
-  background-color: var(--color-dark--1);
-  min-height: calc(100vh - 5rem);
+	background-color: var(--color-dark--1);
+	min-height: calc(100vh - 5rem);
+	/* padding: 2.5rem 5rem; */
+	height: 100vh;
+
+	padding: 2rem 2rem;
+
+	@media (min-width: 425px) {
+		padding: 2.5rem 4rem;
+	}
+
+	@media (min-width: 768px) {
+		padding: 2.5rem 5rem;
+	}
+}
+
+.login > div {
+	height: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .form {
-  background-color: var(--color-dark--2);
-  border-radius: 7px;
-  padding: 2rem 3rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+	background-color: var(--color-dark--2);
+	border-radius: 7px;
+	padding: 2rem 3rem;
+	width: 100%;
+	max-width: 48rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
 
-  /* Different from other form */
-  width: 48rem;
-  margin: 8rem auto;
+	height: fit-content;
+	/* Different from other form */
+	/* width: 48rem; */
+	margin: auto;
 }
 
 .row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
