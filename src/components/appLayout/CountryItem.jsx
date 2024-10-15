@@ -3,8 +3,8 @@ import styles from "./CountryItem.module.css";
 
 function CountryItem({ country }) {
 	const words = country.country.split(" ");
-	const countyName = words.slice(0, 2).join(" ");
-
+	const countyName = words.slice(0, 2).join(" ").replace("(the)", "");
+	console.log(country);
 	return (
 		<li className={styles.countryItem}>
 			<Flag
