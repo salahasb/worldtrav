@@ -4,17 +4,17 @@ import styles from "./Logo.module.css";
 function Logo({ headerLogo }) {
 	return headerLogo ? (
 		<>
-			<Link to="/" className={styles.logo2}>
-				<img src="/icon.png" alt="WorldWise logo" />
+			<Link to="" className={styles.logo2}>
+				<img src="/icon.png" alt="WorldTrav logo" />
 			</Link>
 
-			<Link to="/" className={styles.logo1}>
-				<img src="/logo.png" alt="WorldWise logo" />
+			<Link to="" className={styles.logo1}>
+				<img src="/logo.png" alt="WorldTrav logo" />
 			</Link>
 		</>
 	) : (
 		<Link to="/" className={styles.logo}>
-			<img src="/logo.png" alt="WorldWise logo" />
+			<img src="/logo.png" alt="WorldTrav logo" />
 		</Link>
 	);
 }
